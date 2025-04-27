@@ -9,17 +9,15 @@ let package = Package(
     products: [
         .library(
             name: "TNLogger",
-            targets: ["TNLogger"] // <-- expects a target named "TNLogger"
+            targets: ["TNLogger"]
         ),
     ],
     targets: [
         .target(
-            name: "TNLogger", // <-- now matches!
+            name: "TNLogger",
             dependencies: [],
             swiftSettings: [
-                .define("DEV"),
-                .define("QA"),
-                .define("PROD")
+                // No global environment flags here
             ]
         ),
     ]
