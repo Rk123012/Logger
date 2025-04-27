@@ -94,6 +94,8 @@ public enum TNLogger {
             print("\(info)")
             #elseif QA
             print("\(info)")
+            #else
+            print("\(info)")
             #endif
         }
     }
