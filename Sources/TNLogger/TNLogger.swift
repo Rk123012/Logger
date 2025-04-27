@@ -11,7 +11,7 @@
 import Foundation
 import SwiftUI
 
-enum TNLogger {
+public enum TNLogger {
     
     case info
     case debug
@@ -36,7 +36,7 @@ enum TNLogger {
             return "SEVERE 🔥"
         }
     }
-    static let dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
+    public static let dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
     struct Context {
         let file : String
         let function : String
@@ -46,35 +46,35 @@ enum TNLogger {
         }
     }
     
-    static func info(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func info(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .info, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
-    static func info(_ str : String, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func info(_ str : String, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .info, str: str, shouldLogContext: shouldLogContext, context: context)
     }
-    static func warning(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func warning(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .warning, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
-    static func error(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func error(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .error, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
-    static func error(_ str : String, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func error(_ str : String, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .error, str: str, shouldLogContext: shouldLogContext, context: context)
     }
-    static func debug(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func debug(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .debug, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
-    static func verbose(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func verbose(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .verbose, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
-    static func severe(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
+    public static func severe(_ str : StaticString, shouldLogContext : Bool = true, file : String = #file, function : String = #function, line : Int = #line){
         let context = Context(file: file, function: function, line: line)
         TNLogger.handleLog(level: .severe, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
@@ -88,7 +88,7 @@ enum TNLogger {
         TNLogger.printInfo(information: fullString)
     }
     
-    static func printInfo(information : Any?) {
+    public static func printInfo(information : Any?) {
         if let info = information {
             #if DEV
             print("\(info)")
