@@ -16,7 +16,14 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "TNLogger"),
+                    name: "YourPackage",
+                    dependencies: [],
+                    swiftSettings: [
+                        .define("DEV"), // <-- Add your custom build flags here
+                        .define("QA"), // <-- Add your custom build flags here
+                        .define("PROD") // <-- Add your custom build flags here
+                    ]
+                ),
 
     ]
 )
